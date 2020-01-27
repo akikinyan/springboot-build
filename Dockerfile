@@ -28,3 +28,8 @@ RUN update-java-alternatives --set java-1.8.0-openjdk-amd64
 # Graldeのダウングレード
 RUN apt-get install -y gradle-4.10.3
 RUN update-alternatives --set gradle /usr/lib/gradle/4.10.3/bin/gradle
+
+# Gradle 4.7 install
+RUN apt-get -qq -y install zip unzip curl wget && \
+    curl -s "https://get.sdkman.io" | bash && \
+    bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk install gradle 4.7"
